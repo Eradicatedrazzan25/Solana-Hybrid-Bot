@@ -5,15 +5,11 @@ import os
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-logging.basicConfig(level=logging.INFO)
-
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("🚀 Hybrid Solana Bot is running!
-Use /status or /settings to continue.")
+    await update.message.reply_text("🚀 Hybrid Solana Bot is running!")
 
 async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("📊 Currently monitoring alpha sources.
-Auto-buy/sell: enabled.")
+    await update.message.reply_text("📊 Bot is live and monitoring.")
 
 def setup_handlers(app):
     app.add_handler(CommandHandler("start", start))
@@ -22,5 +18,4 @@ def setup_handlers(app):
 async def start_bot():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     setup_handlers(app)
-    print("✅ Telegram bot running.")
     await app.run_polling()
