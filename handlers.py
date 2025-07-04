@@ -5,6 +5,8 @@ import os
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
+logging.basicConfig(level=logging.INFO)
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("🚀 Hybrid Solana Bot is running!")
 
